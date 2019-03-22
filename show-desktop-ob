@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+__appname__ = "Show Desktop Openbox"
+__version__ = "0.1"
+__author__  = "Alexandre C Vieira"
+__license__ = "GNU GPL 2.0 or later"
+
+import gi
+
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk, Gdk
+
+import subprocess
+import gettext
+
+_ = gettext.gettext
+
+gettext.install("show-desktop-ob", "/usr/share/locale")
+gettext.bindtextdomain("show-desktop-ob", "/usr/share/locale")
+gettext.textdomain("show-desktop-ob")
+
+def draw_window():
+    window = Gtk.Window()
+    window.set_decorated(False)
+    window.set_title(_("Show Desktop"))
+    window.set_default_icon_name("desktop")
+    window.set_type_hint(Gdk.WindowTypeHint.UTILITY)
+    window.set_skip_pager_hint(True)
+    window.set_skip_taskbar_hint(True)
+    window.set_keep_below(True)
+    window.connect("visibility-notify-event", iconify)
+    return window
+
+def iconify(window, event):
+    subprocess.run(["wmctrl", "-k", "on"])
+    
+class Window:
+    window = draw_window()
+    window.present()
+    window.maximize()
+       
+if __name__ == "__main__":
+    window = Window()
+    Gtk.main()
