@@ -12,3 +12,6 @@
 	cd show-desktop-ob
 	python3 setup.py build
     sudo python3 setup.py install --prefix=/usr
+
+	# Configurar para iniciar automaticamente no Openbox
+	echo "show-desktop-ob &" >> $HOME/.config/openbox/autostart
