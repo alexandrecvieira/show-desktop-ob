@@ -5,9 +5,6 @@ import glob
 import os
 from DistUtilsExtra.command import *
 
-
-
-
 setup(name='show-desktop-ob',
       version='0.1.0',
       description='Show Desktop icon on alt-tab',
