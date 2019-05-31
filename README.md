@@ -1,6 +1,6 @@
 # Show Desktop for Openbox Alt-Tab 
 
-![show-desktop-ob](http://alexandrecvieira.droppages.com/images/show-desktop-ob.png)
+![show-desktop-ob](http://alexandrecvieira.droppages.com/images/show-desktop-ob/show-desktop-ob.png)
 
 #### Requerimentos
 
